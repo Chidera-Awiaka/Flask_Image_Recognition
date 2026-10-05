@@ -18,7 +18,7 @@ def get_model():
 
 def preprocess_img(img_path):
     """Open an image and convert it into a normalised (1, 224, 224, 3) array."""
-    op_img = Image.open(img_path)
+    op_img = Image.open(img_path).convert("RGB")
     img_resize = op_img.resize(IMAGE_SIZE)
     img2arr = img_to_array(img_resize) / 255.0
     img_reshape = img2arr.reshape(1, IMAGE_SIZE[0], IMAGE_SIZE[1], 3)

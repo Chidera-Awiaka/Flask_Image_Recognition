@@ -35,12 +35,24 @@ OR
 
 Download as **[ZIP](https://github.com/Sachin-crypto/Flask_Image_Recognition/archive/refs/heads/main.zip)** file and extract it in your project directory.
 
+# Requirements
+
+Python **3.10** is required (TensorFlow 2.10 does not support newer versions).
+
+```commandline
+py -3.10 -m venv venv
+venv\Scripts\activate
+```
+
 # Install Dependencies
 
 Install the dependencies from the **requirements.txt** file.
 
 ```commandline
 pip install -r requirements.txt
+# for development (Pylint, pytest, pre-commit):
+pip install -r requirements-dev.txt
+pre-commit install
 ```
 
 # Run
@@ -57,3 +69,12 @@ Click [here](https://geekpython.in/run-flask-app-from-the-command-line-in-window
 - Choose an image from the test images folder.
 - You will see a preview of the uploaded image.
 - Click on **Submit** button and see the magic.
+
+# Quality Checks
+
+```commandline
+pylint app.py model.py tests
+pytest -v
+```
+
+The GitHub Actions workflow in `.github/workflows/ci.yml` runs both on every push.
